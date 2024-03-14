@@ -257,11 +257,11 @@ class Statistique(Facture):
         print('statistique pour numero: ',self.num_2)
         return self.stat_2
     
-    def date_info(self,date):
+    def mois_info(self,date):
         self.date = date
         self.info_date = []
         for x in self.cdr:
-            if x[2] == date:
+            if x[2][0:6] == self.date:
                 self.info_date.append(x)
         
         self.sms = []
@@ -326,7 +326,7 @@ print(cdr.pile_numero_1())
 print('\n')
 print(cdr.pile_numero_2())
 print('\n')
-print(cdr.date_info('20230314125011'))
+print(cdr.mois_info('202301'))
 print('\n')
 
 
